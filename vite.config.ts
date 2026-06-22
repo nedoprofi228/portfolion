@@ -3,8 +3,8 @@ import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 
-export default defineConfig({
-  base: '/portfolion/',
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/portfolion/',
   plugins: [
     vue(),
     tailwindcss(),
@@ -14,4 +14,4 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-})
+}))
